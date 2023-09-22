@@ -10,6 +10,7 @@ func luasPersegi(sisi1 float64, sisi2 float64) {
 
 func main() {
 	fmt.Println("Fungsi yang menghitung area persegi ")
+	//Isi Sisi ke 1 dan Sisi ke 2
 	luasPersegi(32.1231, 10.512)
 
 }

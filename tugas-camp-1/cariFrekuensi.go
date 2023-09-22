@@ -8,5 +8,6 @@ func cariFrekuensi(periode float64) {
 
 func main() {
 	fmt.Println("Mencari Frekuensi: ")
+	//isi dengan periode dalam satuan sekon
 	cariFrekuensi(4)
 }

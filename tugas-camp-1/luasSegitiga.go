@@ -10,6 +10,7 @@ func luasSegitiga(alas float64, tinggi float64) {
 
 func main() {
 	fmt.Println("Fungsi yang menghitung area segitiga ")
+	//Isi Alas dan Tinggi
 	luasSegitiga(6, 2)
 
 }

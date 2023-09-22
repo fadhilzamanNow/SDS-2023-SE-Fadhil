@@ -10,5 +10,6 @@ func luasLingkaran(radius float64) {
 
 func main() {
 	fmt.Println("Menghitung luas lingkaran")
+	//Isi dengan radius Lingkaran
 	luasLingkaran(4)
 }

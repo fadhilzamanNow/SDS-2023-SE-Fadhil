@@ -12,6 +12,9 @@ func Potensial(massa float64, tinggi float64) {
 
 func main() {
 	fmt.Println("Contoh Energi Kinetik : ")
+	//Isi dengan massa dan kecepatan
 	Kinetik(2, 4)
+	fmt.Println("Contoh Energi Potensial : ")
+	//Isi dengan massa dan tinggi
 	Potensial(5, 10)
 }
