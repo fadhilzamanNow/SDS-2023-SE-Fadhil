@@ -24,6 +24,6 @@ func Connect() {
 	fmt.Println("database terhubung")
 
 	fmt.Println(db)
-	DB.AutoMigrate(models.Pembeli{}, models.Penjual{}, models.Product{})
+	DB.AutoMigrate(models.Admin{}, models.User{})
 
 }

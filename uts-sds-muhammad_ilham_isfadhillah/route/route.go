@@ -16,13 +16,14 @@ func InsertData(c *fiber.Ctx) error {
 		return err
 	}
 
-	pembeli := models.Pembeli{
-		Nama_pembeli: data["nama_pembeli"],
-		Email:        data["email"],
-		Password:     data["password"],
+	user := models.User{
+		Nama_user: data["nama_pembeli"],
+		Email:     data["email"],
+		Username:  data["username"],
+		Password:  data["password"],
 	}
 
-	database.DB.Create(pembeli)
+	database.DB.Create(user)
 
 	return c.JSON(fiber.Map{
 		"Pesan": "Data telah berhasil di tambahkan",
@@ -32,12 +33,12 @@ func InsertData(c *fiber.Ctx) error {
 // Lengkapi Code Berikut untuk untuk Mengambil data untuk semua user - user [DONE]
 func GetAllData(c *fiber.Ctx) error {
 
-	var pembeli models.Pembeli
+	var user models.User
 
-	database.DB.Find(&pembeli)
+	database.DB.Find(&user)
 
 	return c.JSON(fiber.Map{
-		"data": pembeli,
+		"data": user,
 	})
 
 }
@@ -46,27 +47,27 @@ func GetAllData(c *fiber.Ctx) error {
 
 func GetUserByid(c *fiber.Ctx) error {
 
-	var pembeli models.Pembeli
+	var user models.User
 
-	id_pembeli := c.Params("id_pembeli")
+	id_user := c.Params("id_user")
 
-	database.DB.Where("id_pembeli = ?", id_pembeli).Find(&pembeli)
+	database.DB.Where("id_user = ?", id_user).Find(&user)
 	return c.JSON(fiber.Map{
-		"id_pembeli": id_pembeli,
-		"data":       pembeli,
+		"id_pembeli": id_user,
+		"data":       user,
 	})
 }
 
 func Delete(c *fiber.Ctx) error {
 
-	var pembeli models.Pembeli
+	var user models.User
 
-	id_pembeli := c.Params("id_pembeli")
+	id_user := c.Params("id_user")
 
-	database.DB.Where("id_pembeli = ?", id_pembeli).Delete(pembeli)
+	database.DB.Where("id_user = ?", id_user).Delete(user)
 
 	return c.JSON(fiber.Map{
-		"Pesan": "Data telah di hapus",
+		"Pesan": "Data User telah di hapus",
 	})
 }
 
@@ -79,17 +80,17 @@ func Update(c *fiber.Ctx) error {
 	if err := c.BodyParser(&data); err != nil {
 		return err
 	}
-	var pembeli models.Pembeli
-	database.DB.Find(&pembeli)
+	var user models.User
+	database.DB.Find(&user)
 	//data yang di ubah
 	//membuat variable user berdasarkan model user
-	var user models.Pembeli
+	// var user models.User
 
-	update := models.Pembeli{
-		Nama_pembeli: data["nama"],
-		Email:        data["email"],
-		Username:     data["username"],
-		Password:     data["password"],
+	update := models.User{
+		Nama_user: data["nama"],
+		Email:     data["email"],
+		Username:  data["username"],
+		Password:  data["password"],
 	}
 	//mengambil database untuk di update
 
